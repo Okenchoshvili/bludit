@@ -14,27 +14,6 @@ if (version_compare(phpversion(), '5.6', '<')) {
 	exit($errorText);
 }
 
-// Check PHP modules
-$modulesRequired = array('json', 'dom');
-$modulesRequiredExit = true;
-$modulesRequiredMissing = '';
-foreach ($modulesRequired as $module) {
-	if (!extension_loaded($module)) {
-		$errorText = 'PHP module <b>' . $module . '</b> is not installed.';
-		error_log('[ERROR] ' . $errorText, 0);
-
-		$modulesRequiredExit = true;
-		$modulesRequiredMissing .= $errorText . PHP_EOL;
-	}
-}
-if ($modulesRequiredExit) {
-	echo 'PHP modules missing:';
-	echo $modulesRequiredMissing;
-	echo '';
-	echo '<a href="https://docs.bludit.com/en/getting-started/requirements">Please read Bludit requirements</a>.';
-	exit(0);
-}
-
 // Security constant
 define('BLUDIT', true);
 
