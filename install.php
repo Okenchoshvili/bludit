@@ -16,7 +16,7 @@ if (version_compare(phpversion(), '5.6', '<')) {
 
 // Check PHP modules
 $modulesRequired = array('json', 'dom');
-$modulesRequiredExit = false;
+$modulesRequiredExit = true;
 $modulesRequiredMissing = '';
 foreach ($modulesRequired as $module) {
 	if (!extension_loaded($module)) {
